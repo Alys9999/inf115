@@ -33,8 +33,10 @@ class TriangleTyperTest {
 	
 	// Parameterized version (you just need to add more values to the @CsvSource)
 	@ParameterizedTest(name="{0}: sides {1}, {2}, {3} Expected= {4}")
-	@CsvSource({"'Equilateral', 5, 5, 5, 3",
-		"'Scalene a<b<c', 3, 4, 5, 1"
+	@CsvSource({"'Equilateral', 5, 5, 5, 3",//
+		"'Scalene a<b<c', 3, 4, 5, 1",
+		"'S1S2S3', -1, 0, 0, 4",
+		"'S1S4S5S6', 1000, 999, 1111, 5"
 		})
 	void testTyper(String name, int a, int b, int c, int expected) {
 		int type = TriangleTyper.typer(a, b, c);
